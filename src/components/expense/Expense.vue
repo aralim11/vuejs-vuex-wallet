@@ -27,7 +27,6 @@
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th scope="col">#</th>
           <th scope="col">Reason</th>
           <th scope="col">Date</th>
           <th scope="col">Amount</th>
@@ -35,8 +34,7 @@
       </thead>
       <tbody>
         <tr v-for="expense in expenses" v-bind:key="expense.id">
-          <th scope="row">{{ expense.id }}</th>
-          <td>{{ expense.expenseReason }}</td>
+          <th scope="row">{{ expense.expenseReason }}</th>
           <td>{{ expense.expenseDate }}</td>
           <td>{{ expense.expenseAmount }}</td>
         </tr>
@@ -85,7 +83,7 @@
         }
 
         const expenseData = {
-          id: 1,
+          id: Math.random().toString().replace("0.", ""),
           expenseReason: this.expenseReason.val,
           expenseDate: this.expenseDate.val,
           expenseAmount: this.expenseAmount.val.toFixed(2),

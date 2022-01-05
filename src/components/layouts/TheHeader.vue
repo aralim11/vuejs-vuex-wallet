@@ -12,7 +12,7 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item"><router-link class="nav-link" to="/income">Income</router-link></li>
           <li class="nav-item"><router-link class="nav-link" to="/expense">Expense</router-link></li>
-          <li class="nav-item"><router-link class="nav-link" to="/owe">Owe</router-link></li>
+          <li class="nav-item"><router-link class="nav-link" to="/owe">Owe/Loan</router-link></li>
         </ul>
       </div>
     </div>

@@ -29,4 +29,8 @@ export default {
   .invalid{
     border: 1px solid red;
   }
+
+  .submit-Btn {
+    margin-top: -18px!important;
+  }
 </style>

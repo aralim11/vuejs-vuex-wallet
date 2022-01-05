@@ -2,7 +2,20 @@ export default{
     namespaced: true,
     state(){
         return {
-            expense: [],
+            expense: [
+                {
+                    id: Math.random().toString().replace("0.", ""),
+                    expenseReason: "House Rent",
+                    expenseDate: "2022-01-04",
+                    expenseAmount: "25.00",
+                },
+                {
+                    id: Math.random().toString().replace("0.", ""),
+                    expenseReason: "Electricity Bill",
+                    expenseDate: "2022-01-04",
+                    expenseAmount: "05.00",
+                },
+            ],
         }
     },
 
