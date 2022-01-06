@@ -8,7 +8,7 @@ export default{
                     oweDate: "2022-01-04",
                     oweAmount: "12.00",
                     oweType: "Loan",
-                    oweReason: "Hasibur",
+                    oweReason: "Hasibur Kolim",
                     oweHistory: [
                         {
                             oweHistoryId: Math.random().toString().replace("0.", ""),
@@ -32,7 +32,7 @@ export default{
                         {
                             oweHistoryId: Math.random().toString().replace("0.", ""),
                             oweHistoryDate: "2022-01-04",
-                            oweHistoryamount: "01.00",
+                            oweHistoryamount: "05.00",
                         },
                         {
                             oweHistoryId: Math.random().toString().replace("0.", ""),
