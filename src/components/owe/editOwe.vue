@@ -11,8 +11,9 @@
         </div>
 
         <br/>
-        <div align="center" class="submit-Btn">
-            <input type="button" class="btn btn-success btn-xs" value="Submit" v-on:click.prevent="editOwe"/>
+        <div class="submit-Btn">
+            <h5 class="d-inline-block">Rest {{oweType}}: {{restOwe}}</h5>
+            <input type="button" class="btn btn-success btn-sm pull-right" value="Submit" v-on:click.prevent="editOwe"/>
         </div>
 
         <div>
@@ -37,13 +38,14 @@
 
 <script>
     import oweHistoryList from './oweHistoryList.vue';
+    import { mapGetters } from 'vuex';
 
     export default {
         components: {
             'owe-history-list': oweHistoryList
         },
 
-        props:['editId'],
+        props:['editId', 'oweType'],
         data(){
             return{
                 oweDate: {val: new Date().toISOString().slice(0, 10), isValid: true},
@@ -86,10 +88,29 @@
         },
 
         computed: {
+            ...mapGetters({
+                xyzGetters: 'owe/xyz'
+            }),
+
             oweHistoryById(){
                 const owes = this.$store.getters['owe/owe'];
                 const oweData = owes.findIndex(res => {return res.id === this.editId});
                 return owes[oweData]['oweHistory'];  
+            },
+
+            restOwe(){
+                const owes = this.$store.getters['owe/owe'];
+                const oweData = owes.findIndex(res => {return res.id === this.editId});
+                const totalOwe = owes[oweData]['oweAmount'];
+                const history = owes[oweData]['oweHistory'];
+                var totalHistoryAmount = 0;
+
+                for(let i = 0; i < history.length; i++){
+                    totalHistoryAmount = totalHistoryAmount + parseInt(history[i]['oweHistoryamount']);
+                }
+                
+                const rest = parseInt(totalOwe) - parseInt(totalHistoryAmount);
+                return rest.toFixed(2);
             }
         }
     }
@@ -98,5 +119,9 @@
 <style scoped>
     .historyTable{
         margin-top: 10px;
+    }
+
+    .d-inline-block{
+        color: crimson;
     }
 </style>

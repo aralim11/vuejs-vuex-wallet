@@ -28,7 +28,7 @@
     </table>
 
     <base-modal :myModal="isEditModalOpen" title="Edit Owe/Loan" v-on:closeModal="closeEditModal">
-      <edit-owe :editId="editId" @hideEditModal="closeEditModal"></edit-owe>
+      <edit-owe :editId="editId" :oweType="oweType" @hideEditModal="closeEditModal"></edit-owe>
     </base-modal>
   </base-card>
 </template>
@@ -62,8 +62,9 @@
         this.isModalOpen = false;
       },
 
-      openEditModal(id){
+      openEditModal(id, oweType){
         this.editId = id;
+        this.oweType = oweType;
         this.isEditModalOpen = true;
       },
 

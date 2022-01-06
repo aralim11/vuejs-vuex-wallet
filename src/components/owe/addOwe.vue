@@ -26,7 +26,7 @@
 
         <br/>
         <div align="center" class="submit-Btn">
-            <input type="button" class="btn btn-success btn-xs" value="Submit" v-on:click.prevent="saveOwe"/>
+            <input type="button" class="btn btn-success btn-sm" value="Submit" v-on:click.prevent="saveOwe"/>
         </div>
     </div>
 </template>

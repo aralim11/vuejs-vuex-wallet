@@ -25,7 +25,7 @@ export default{
                 {
                     id: Math.random().toString().replace("0.", ""),
                     oweDate: "2022-01-01",
-                    oweAmount: "05.00",
+                    oweAmount: "10.00",
                     oweType: "Owe",
                     oweReason: "Abdul Alim",
                     oweHistory: [
@@ -58,7 +58,7 @@ export default{
         editStoreOwe(state, payload){
             const oweData = state.owe.findIndex(res => {return res.id === payload.oweId});
             state.owe[oweData]['oweHistory'].push(payload.oweData);
-        }
+        },
     },
 
     actions: {
@@ -68,7 +68,7 @@ export default{
 
         editOwe(context, payload){
             context.commit('editStoreOwe', payload);
-        }
+        },
     },
 
     getters: {
@@ -84,6 +84,6 @@ export default{
             });
     
             return total.toFixed(2);
-        }
+        },
     }
 }
