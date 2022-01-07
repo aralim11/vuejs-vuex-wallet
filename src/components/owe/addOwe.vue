@@ -81,13 +81,7 @@
                     oweAmount: this.oweAmount.val.toFixed(2),
                     oweType: this.oweType.val,
                     oweReason: this.oweReason.val,
-                    oweHistory:[
-                        {
-                            oweHistoryId: Math.random().toString().replace("0.", ""),
-                            oweHistoryDate: this.oweDate.val,
-                            oweHistoryamount: this.oweAmount.val.toFixed(2),
-                        }
-                    ]
+                    oweHistory:[]
                 }
 
                 this.$store.dispatch('owe/addOwe', oweData);

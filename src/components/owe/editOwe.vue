@@ -8,7 +8,7 @@
 
             <div class="form-group">
                 <label>Enter Amount <span class="required">*</span></label>
-                <input type="number" class="form-control" v-bind:class="{invalid: !oweAmount.isValid}" v-model.number="oweAmount.val" placeholder="Enter Amount"/>
+                <input type="number" class="form-control" v-on:keyup="calculateAmount()" v-bind:class="{invalid: !oweAmount.isValid}" v-model.number="oweAmount.val" placeholder="Enter Amount"/>
             </div>
 
             <br/>
@@ -85,6 +85,15 @@
 
                 this.$store.dispatch('owe/editOwe', {oweData: oweData, oweId: this.editId});
                 this.$emit('hideEditModal');
+            },
+
+            calculateAmount(){
+                if (this.restOwe < this.oweAmount.val) {
+                    this.oweAmount.isValid = false;
+                    this.oweAmount.val = null;
+                } else {
+                    this.oweAmount.isValid = true;
+                }
             }
         },
 
